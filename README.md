@@ -16,8 +16,77 @@ pyenv install 3.6.2
 # Inside the root of the repository:
 pyenv local 3.6.2
 ```
+4. Install elasticsearch and sense
 
-4. Install requirements (inside your virtualenv)
+5. Install requirements (inside your virtualenv)
 ```
 pip install -r requirements.txt
 ```
+
+
+----
+TODO
+
+Make sure the UI works
+- Type in a search term
+
+
+Things to search for:
+1. Exact Substring: Name
+- Exact text, Exact case,
+2. TermQuery
+3. MatchQuery
+4. MatchAllQuery
+5. DisMax Query: search for product name and description and weight the name more highly
+Intro basic tools that kind of work but are terrible for various reasons
+- Index with name, description and ID
+- 1.5 Hours:
+  - Make search work
+  - Explore data with Sense
+  - Intro matching: exact, fuzzy and dismax
+- List of challenges:
+1) here's a search term: 'blue dress' and example products in the dataset
+-- typing in --> bad results
+2) play with matchers --> try and get good results across those things
+TODO: Answers ideas
+- Hint 1: This is what an analzyer is
+- Series of hints: analyzers might be useful, check out this description
+-- Analyzers (remove stop words)
+-- Tokenization
+-- Boosting
+-- Scoring
+-- Preprocessing
+
+
+PART II
+
+Lecture: What is ES; Terminology, etc.
+
+Advanced Queries
+7. Index and Search Price
+- Less than, greater than
+- Uncomment thing in the UI --> price refinement
+- Indexing price, reindexing
+- Hard conditional with a search term
+
+8. Index and Search Color
+
+9. Clustering
+
+10. Refinements and aggregations
+- There are [Some] results...
+- Color, Price and Brand
+- Aggregation over all of the refinments
+
+11. Writing to Elasticsearch
+-- More effective to recreate a new index
+-- Part III: Update API
+
+12. Scalability: framing it as cool to understand, but not necessarily help you
+- Why ES scales well
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_add_failover.html
+
+HOSTED Elasticsearch -- getting things up and running in production:
+TODO: Julie to get promo codes for students
+-- $$ for hosted elasticsearch exists
+-- Contact at AWS for free promo codes

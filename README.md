@@ -6,6 +6,10 @@
 ```
 virtualenv venv
 source venv/bin/activate
+
+# If you are using a Python 3 version, virtual environment support is included
+# in it, so all you need to do to create one is this:
+python3 -m venv venv
 ```
 3. Install python 3.6.2 with pyenv
 See instructions here: https://github.com/pyenv/pyenv

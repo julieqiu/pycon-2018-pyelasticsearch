@@ -24,8 +24,31 @@ pip install -r requirements.txt
 ```
 
 
-----
+------------------------
 TODO
+1. Get JSON blobs of 250 products (variants)
+- Name
+- Description
+- Price
+- Brand Name
+- Color (standard)
+- Image url
+
+2. Make a UI for search terms with Flask and Jinja and ability to type in a custom term
+- Blue dress
+- Blue dress shirt
+- Pants that are leather
+- Green pants
+- Bonobos Pants
+
+3. Get promo codes from Elastic + AWS
+
+4. Exercise
+
+5. Make Slides for Lecture
+- What is Elasticsearch
+- ES Terminology
+
 
 Make sure the UI works
 - Type in a search term

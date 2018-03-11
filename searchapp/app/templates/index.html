@@ -1,17 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
+  <style>
+    .bulk-results {
+      display: flex;
+    }
+
+    .search {
+      width: 170px;
+    }
+
+    .search-header {
+      height: 40px;
+    }
+
+    .search-results {
+      display: grid;
+      grid-template-columnts: repeat(3, 50px);
+      grid-gap: 10px;
+    }
+
+    .product-image {
+      max-width: 50px;
+      max-height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .product-info {
+      height: 12px;
+    }
+
+    .product-name {
+      font-size: 10px;
+      margin-right: 10px;
+    }
+
+    .product-price {
+      font-size: 8px;
+    }
+  </style>
+
+  <h1>Hi, {{ user.username }}!</h1>
+  <div class="bulk-results">
     {% for category, products in products_by_category.items() %}
-      <div class="products-row">
-        <div style="display: inline-block">
-          <p>{{ category }}</p>
+      <div class="search">
+        <div class="search-header">
+          <span>{{ category }}</span>
+        </div>
+        <div class="search-results">
           {% for product in products %}
-            <p>{{ product.name }}</p>
-            <p>{{ product.price }}</p>
+            <div class="product">
+              <img class="product-image" src="{{ product.image }}"/>
+              <div class="product-info">
+                <span>{{ product.name }}</span>
+                <span>{{ product.price }}</span>
+              </div>
+            </div>
           {% endfor %}
         </div>
       </div>
     {% endfor %}
-
+  </div>
 {% endblock %}

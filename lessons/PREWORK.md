@@ -4,8 +4,7 @@
 
 https://www.python.org/downloads/release/python-364/
 
-
-2. Install elasticsearch and sense
+2. Install elasticsearch
 
 OS X:
 ```
@@ -13,20 +12,31 @@ brew update
 brew install elasticsearch
 brew services start elasticsearch
 ```
+3. Clone this repository in your home folder:
 
-3. Set up a virtualenv
+```
+cd $HOME
+git clone github.com/julieqiu/pycon-2018-pyelasticsearch
+```
+
+4. In this directory:
+- Set up a virtualenv:
 ```
 python3 -m venv venv
 source venv/bin/activate
 ```
-
-4. Install packages elasticsearch-py and flask
+- Install the dependencies:
 ```
 pip install -r requirements.txt
 ```
-elasticsearch-py: https://github.com/elastic/elasticsearch-py
+- Libraries you will be installing:
+(elasticsearch-py)[https://github.com/elastic/elasticsearch-py]
+(Flask)[http://flask.pocoo.org]
 
-5. Make sure these commands work:
+
+5. Set the FLASK_APP path
+
+6. Make sure these commands work:
 ```
 flask run
 python3 test_elasticsearch.py

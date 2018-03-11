@@ -1,5 +1,11 @@
 # pycon-2018-pyelasticsearch
 
+## Running the Test Server
+```
+> source environment
+> flask run
+```
+
 TODO
 1. Get JSON blobs of 250 products (variants)
 - Name

@@ -3,6 +3,10 @@
 ## Indexing
 
 - Index
+- Cluster
+- Node
+- Index
+- Type
 - Document
 - Mapping
 - Template

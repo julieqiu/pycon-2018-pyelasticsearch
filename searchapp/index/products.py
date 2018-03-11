@@ -37,9 +37,16 @@ def main():
         id=42,
         body=orange_shirt,
     )
+    es.index(
+        index='products',
+        doc_type='products',
+        id=25,
+        body=other_orange_shirt,
+    )
 
     # but not deserialized
-    es.get(index='products', doc_type='products', id=42)['_source']
+    import pdb; pdb.set_trace()
+    products = es.get(index='products', doc_type='products')
 
 
 if __name__ == '__main__':

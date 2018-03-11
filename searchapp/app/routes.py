@@ -1,3 +1,4 @@
+from elasticsearch import Elasticsearch
 from flask import render_template
 from app import app
 
@@ -27,9 +28,18 @@ def index():
         },
     ]
 
+    es = Elasticsearch()
+    orange_shirt_docs = es.search(
+        index='products',
+        doc_type='products'
+    )['hits']['hits']
+
+    orange_shirts = [doc['_source'] for doc in orange_shirt_docs]
+
     products_by_category = {
         'Blue Dress': blue_dresses,
         'Bonobos Pants': bonobos_pants,
+        'Orange Shirts': orange_shirts,
     }
 
     return render_template(

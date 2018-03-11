@@ -27,6 +27,16 @@ pyenv local 3.6.2
 pip install -r requirements.txt
 ```
 
+6. Install elasticsearch
+```
+brew update
+brew install elasticsearch
+brew services start elasticsearch
+```
+
+7. elasticsearch-py
+https://github.com/elastic/elasticsearch-py
+
 
 ------------------------
 TODO

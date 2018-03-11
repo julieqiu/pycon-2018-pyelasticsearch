@@ -1,44 +1,5 @@
 # pycon-2018-pyelasticsearch
 
-## Tutorial Pre-Work
-1. Clone this repository locally
-2. Set up a virtualenv
-```
-virtualenv venv
-source venv/bin/activate
-
-# If you are using a Python 3 version, virtual environment support is included
-# in it, so all you need to do to create one is this:
-python3 -m venv venv
-```
-3. Install python 3.6.2 with pyenv
-See instructions here: https://github.com/pyenv/pyenv
-For OSX:
-```
-brew install pyenv
-pyenv install 3.6.2
-# Inside the root of the repository:
-pyenv local 3.6.2
-```
-4. Install elasticsearch and sense
-
-5. Install requirements (inside your virtualenv)
-```
-pip install -r requirements.txt
-```
-
-6. Install elasticsearch
-```
-brew update
-brew install elasticsearch
-brew services start elasticsearch
-```
-
-7. elasticsearch-py
-https://github.com/elastic/elasticsearch-py
-
-
-------------------------
 TODO
 1. Get JSON blobs of 250 products (variants)
 - Name

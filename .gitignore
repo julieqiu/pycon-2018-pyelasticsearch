@@ -105,3 +105,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# End of https://www.gitignore.io/api/python
+
+
+searchapp/products.json

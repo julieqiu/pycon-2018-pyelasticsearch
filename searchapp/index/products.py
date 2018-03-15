@@ -1,4 +1,5 @@
 import datetime
+import json
 from elasticsearch import Elasticsearch
 
 
@@ -12,41 +13,20 @@ def main():
         ignore=400,
     )
 
-    orange_shirt = {
-        'name': 'Orange Shirt',
-        'description': 'This shirt is amazing and everybody loves it.',
-        'image': 'https://wordans-mxelda46illwc0hq.netdna-ssl.com/files/model_specifications/2015/8/31/121007/121007_big.jpg?1441031839',
-        'price': 10.00,
-        'taxonomy': 'men:tops:shirts',
-        'timestamp': datetime.datetime.now(),
-    }
-
-    other_orange_shirt = {
-        'name': 'Other Orange Shirt',
-        'description': 'Also an acceptable shirt.',
-        'price': 15.00,
-        'image': 'https://www.forever21.com/images/1_front_750/00252135-05.jpg',
-        'taxonomy': 'men:tops:shirts',
-        'timestamp': datetime.datetime.now(),
-    }
-
+    products_data = json.load(open('products.json'))
     # datetimes will be serialized
-    es.index(
-        index='products',
-        doc_type='products',
-        id=42,
-        body=orange_shirt,
-    )
-    es.index(
-        index='products',
-        doc_type='products',
-        id=25,
-        body=other_orange_shirt,
-    )
+    for i, product in enumerate(products_data):
+        product_id = i + 1
+        es.index(
+            index='products',
+            id=product_id,
+            doc_type='products',
+            body=product,
+        )
+        print(product_id, product['name'])
 
     # but not deserialized
-    import pdb; pdb.set_trace()
-    products = es.get(index='products', doc_type='products')
+    # products = es.get(index='products', doc_type='products')
 
 
 if __name__ == '__main__':

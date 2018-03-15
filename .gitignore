@@ -110,4 +110,4 @@ venv.bak/
 # End of https://www.gitignore.io/api/python
 
 
-searchapp/products.json
+searchapp/index/products.json

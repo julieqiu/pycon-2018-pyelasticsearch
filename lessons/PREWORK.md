@@ -30,11 +30,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 - Libraries you will be installing:
-(elasticsearch-py)[https://github.com/elastic/elasticsearch-py]
-(Flask)[http://flask.pocoo.org]
-
+[elasticsearch-py](https://github.com/elastic/elasticsearch-py)
+[Flask](http://flask.pocoo.org)
 
 5. Set the FLASK_APP path
+```
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export FLASK_APP=${DIR}/searchapp/searchapp.py
+```
 
 6. Make sure these commands work:
 ```

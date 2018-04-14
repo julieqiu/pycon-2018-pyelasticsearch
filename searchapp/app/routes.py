@@ -22,7 +22,7 @@ def search(term, count):
 @app.route('/index')
 def index():
     terms = ['necklace', 'metal necklace', 'dress shirt', 'S.W. Basics',
-             'SW Basics', 'jacket', 'blazer', 'basic']
+             'SW Basics', 'jacket', 'blazer', 'basic', 'blue dress']
 
     products_by_category = {t: search(t, 9) for t in terms}
 
@@ -45,8 +45,17 @@ def all_products():
 
     return _all_products
 
+@app.route('/search/<query>')
+def search_single_product(query):
+    products_by_category = {query: search(query, 9)}
 
-@app.route('/product/:id')
+    return render_template(
+        'index.html',
+        title='PyCon 2018',
+        products_by_category=products_by_category,
+    )
+
+@app.route('/product/<id>')
 def single_product(id_):
     product = json.dumps(all_products()[id_])
 

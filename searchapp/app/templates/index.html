@@ -2,6 +2,17 @@
 
 {% block content %}
   <style>
+    #search-bar input {
+        display: flex;
+        width: 60%;
+        padding: 10px 0;
+        margin: 20px 0;
+    }
+
+    #search-bar button {
+        display: flex;
+    }
+
     .bulk-results {
       display: flex;
       flex-wrap: wrap;
@@ -54,6 +65,12 @@
       font-size: 8px;
     }
   </style>
+
+
+  <form id="search-bar" action="/search">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search">Search</i></button>
+  </form>
 
   <div class="bulk-results">
     {% for category, products in products_by_category.items() %}

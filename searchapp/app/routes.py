@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search, Q
 from searchapp.app.app import app
@@ -35,8 +35,9 @@ def index():
     )
 
 
-@app.route('/search/<query>')
-def search_single_product(query):
+@app.route('/search', methods=['GET', 'POST'])
+def search_single_product():
+    query = request.args.get('search')
     products_by_category = {query: search(query, 9)}
 
     return render_template(

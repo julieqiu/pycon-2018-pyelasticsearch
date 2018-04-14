@@ -1,7 +1,9 @@
 from flask import render_template
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search, Q
-from app import app
+from searchapp.app.app import app
+
+from searchapp.models.product import all_products
 import json
 
 
@@ -32,18 +34,6 @@ def index():
         products_by_category=products_by_category,
     )
 
-_all_products = None
-
-
-def all_products():
-    global _all_products
-    if _all_products is None:
-        _all_products = {}
-        with open('products.json') as product_file:
-            for product in json.loads(product_file):
-                _all_products[product['id']] = product
-
-    return _all_products
 
 @app.route('/search/<query>')
 def search_single_product(query):
@@ -55,12 +45,13 @@ def search_single_product(query):
         products_by_category=products_by_category,
     )
 
-@app.route('/product/<id>')
-def single_product(id_):
-    product = json.dumps(all_products()[id_])
+
+@app.route('/product/<int:product_id>')
+def single_product(product_id):
+    product = json.dumps(all_products()[product_id], indent=4, sort_keys=True)
 
     return render_template(
         'product.html',
         title='PyCon 2018',
-        product=product,
+        product_json=product,
     )

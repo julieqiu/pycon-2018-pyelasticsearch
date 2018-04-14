@@ -28,6 +28,12 @@
       grid-gap: 20px;
     }
 
+    .product {
+      display: block;
+      color: #333;
+      text-decoration: none;
+    }
+
     .product-image {
       max-width: 100px;
       max-height: 100px;
@@ -57,13 +63,13 @@
         </div>
         <div class="search-results">
           {% for product in products %}
-            <div class="product">
+            <a href="/product/{{product.meta.id}}" class="product">
               <img class="product-image" src="{{ product.image }}"/>
               <div class="product-info">
                 <span>{{ product.name }}</span>
                 <span>${{ product.price }}</span>
               </div>
-            </div>
+            </a>
           {% endfor %}
         </div>
       </div>

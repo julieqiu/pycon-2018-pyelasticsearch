@@ -1,5 +1,5 @@
 import json
-
+import os
 _all_products = None
 
 
@@ -8,7 +8,9 @@ def all_products():
     id_ = 1
     if _all_products is None:
         _all_products = {}
-        with open('../../products.json') as product_file:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        products_path = os.path.join(dir_path, 'products.json')
+        with open(products_path) as product_file:
             print('loading!')
             for idx, product in enumerate(json.load(product_file)):
                 id_ = idx + 1  # ES ids have to be positive integers

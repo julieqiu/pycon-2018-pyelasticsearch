@@ -9,6 +9,7 @@ https://www.python.org/downloads/release/python-364/
 OS X:
 ```
 brew update
+brew install kibana
 brew install elasticsearch
 brew services start elasticsearch
 ```

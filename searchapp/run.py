@@ -1,5 +1,4 @@
 from searchapp.app.app import app
-from searchapp.app import routes
 
 
 def main():

@@ -111,6 +111,3 @@ venv.bak/
 
 # vim
 *.swp
-
-
-searchapp/models/products.json

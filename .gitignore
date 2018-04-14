@@ -109,5 +109,8 @@ venv.bak/
 
 # End of https://www.gitignore.io/api/python
 
+# vim
+*.swp
+
 
 searchapp/index/products.json

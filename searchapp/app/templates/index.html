@@ -4,30 +4,39 @@
   <style>
     .bulk-results {
       display: flex;
+      flex-wrap: wrap;
     }
 
     .search {
-      width: 170px;
+      margin: 0px 10px 20px 10px;
+      padding: 20px;
+      background: #fafaff;
     }
 
     .search-header {
       height: 40px;
     }
 
+    .search-term {
+      font-weight: bold;
+    }
+
     .search-results {
       display: grid;
-      grid-template-columnts: repeat(3, 50px);
-      grid-gap: 10px;
+      grid-template-columns: repeat(3, 100px);
+      grid-auto-rows: 150px;
+      grid-gap: 20px;
     }
 
     .product-image {
-      max-width: 50px;
-      max-height: 50px;
+      max-width: 100px;
+      max-height: 100px;
       margin-bottom: 10px;
     }
 
     .product-info {
-      height: 12px;
+      height: 54px;
+      overflow: hidden;
     }
 
     .product-name {
@@ -44,7 +53,7 @@
     {% for category, products in products_by_category.items() %}
       <div class="search">
         <div class="search-header">
-          <span>{{ category }}</span>
+          <span class="search-term">"{{ category }}"</span>
         </div>
         <div class="search-results">
           {% for product in products %}
@@ -52,7 +61,7 @@
               <img class="product-image" src="{{ product.image }}"/>
               <div class="product-info">
                 <span>{{ product.name }}</span>
-                <span>{{ product.price }}</span>
+                <span>${{ product.price }}</span>
               </div>
             </div>
           {% endfor %}

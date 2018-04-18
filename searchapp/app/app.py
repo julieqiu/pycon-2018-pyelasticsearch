@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 from searchapp.models.product import all_products
-from searchapp.app.search import search
+from searchapp.app.search import search, aggregate
 import json
 
 app = Flask(__name__)
@@ -43,3 +43,8 @@ def single_product(product_id):
         title='PyCon 2018',
         product_json=product,
     )
+
+@app.route('/refinements')
+def refinements():
+    aggregate()
+

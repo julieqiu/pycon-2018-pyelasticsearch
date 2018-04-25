@@ -32,9 +32,8 @@ def aggregate():
     aggregations_query = Search(index=INDEX_NAME, doc_type=DOC_TYPE)
 
     # The base query
-    base_query = Search(index=INDEX_NAME, doc_type=DOC_TYPE)
-    aggregations_query.query = base_query.query
-#
+    aggregations_query.query = Q('match', name=dict(query='jeans', operator='and'))
+
     # copy the same query
     # aggregations_query = aggregations_query[0:0]  # size: 0 since we don't need hits
     # aggregations_query.fields([])
@@ -62,4 +61,5 @@ def aggregate():
         raise Exception('aggregations query failed')
         return None
 
-    return aggregations_query_result.aggregations.to_dict()
+    x = aggregations_query_result.aggregations.to_dict()
+    return x

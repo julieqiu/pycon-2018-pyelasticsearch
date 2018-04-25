@@ -49,7 +49,12 @@ def single_product(product_id):
     )
 
 @app.route('/refinements')
-def refinements():
-    x = aggregate()
-    import pdb; pdb.set_trace()
+def create_refinements():
+    results = aggregate()
+    taxonomies_and_counts = results['taxonomy']['buckets']
 
+
+    return render_template(
+        'refinements.html',
+        refinements = results['taxonomy']['buckets'],
+    )

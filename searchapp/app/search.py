@@ -28,11 +28,12 @@ def search(term: str, count: int) -> dict:
     docs = s.query(match_name)[0:count].execute()
     return docs
 
-def aggregate():
+def aggregate(query=None):
     aggregations_query = Search(index=INDEX_NAME, doc_type=DOC_TYPE)
 
     # The base query
-    aggregations_query.query = Q('match', name=dict(query='jeans', operator='and'))
+    if query:
+        aggregations_query.query = Q('match', name=dict(query=query, operator='and'))
 
     # copy the same query
     # aggregations_query = aggregations_query[0:0]  # size: 0 since we don't need hits

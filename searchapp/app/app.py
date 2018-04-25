@@ -50,7 +50,8 @@ def single_product(product_id):
 
 @app.route('/refinements')
 def create_refinements():
-    results = aggregate()
+    query = request.args.get('query', None)
+    results = aggregate(query)
     taxonomies_and_counts = results['taxonomy']['buckets']
 
 

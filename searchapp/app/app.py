@@ -10,8 +10,10 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    terms = ['necklace', 'metal necklace', 'dress shirt', 'S.W. Basics',
-             'SW Basics', 'jacket', 'blazer', 'basic', 'blue dress']
+    terms = ['necklace', 'metal necklace', 'necklce', 'brass necklace',
+             'necklaces made of brass',
+             'dress shirt', 'S.W. Basics', 'SW Basics', 'jacket',
+             "Men's Jacket", 'wool jacket', 'blazer', 'basic', 'blue dress']
 
     products_by_category = {t: search(t, 9) for t in terms}
 
@@ -25,12 +27,13 @@ def index():
 @app.route('/search', methods=['GET', 'POST'])
 def search_single_product():
     query = request.args.get('search')
-    products_by_category = {query: search(query, 9)}
+    products_by_category = {query: search(query, 50)}
 
     return render_template(
         'index.html',
         title='PyCon 2018',
         products_by_category=products_by_category,
+        search_term=query,
     )
 
 
@@ -42,6 +45,7 @@ def single_product(product_id):
         'product.html',
         title='PyCon 2018',
         product_json=product,
+        search_term='',
     )
 
 @app.route('/refinements')

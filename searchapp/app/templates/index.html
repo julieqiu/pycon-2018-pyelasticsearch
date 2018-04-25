@@ -2,15 +2,18 @@
 
 {% block content %}
   <style>
+    #search-bar {
+      display: flex;
+      margin: 20px 10px;
+    }
+
     #search-bar input {
-        display: flex;
-        width: 60%;
-        padding: 10px 0;
-        margin: 20px 0;
+      width: 100%;
+      padding: 10px;
     }
 
     #search-bar button {
-        display: flex;
+      margin-left: 15px;
     }
 
     .bulk-results {
@@ -68,7 +71,7 @@
 
 
   <form id="search-bar" action="/search">
-    <input type="text" placeholder="Search.." name="search">
+    <input type="text" placeholder="Search.." name="search" value="{{ search_term }}">
     <button type="submit"><i class="fa fa-search">Search</i></button>
   </form>
 

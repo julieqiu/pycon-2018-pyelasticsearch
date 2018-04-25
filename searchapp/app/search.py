@@ -23,6 +23,8 @@ def search(term: str, count: int) -> dict:
     s = Search(using=client, index=INDEX_NAME, doc_type=DOC_TYPE)
 
     match_name = Q('match', name=dict(query=term, operator='and'))
+    s = Search(using=client, index='products', doc_type='products')
+    match_name = Q('match', name=dict(query=term, operator='and', fuzziness='AUTO'))
     docs = s.query(match_name)[0:count].execute()
     return docs
 

@@ -46,5 +46,6 @@ def single_product(product_id):
 
 @app.route('/refinements')
 def refinements():
-    aggregate()
+    x = aggregate()
+    import pdb; pdb.set_trace()
 

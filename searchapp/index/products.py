@@ -6,18 +6,28 @@ def main():
     # by default we connect to localhost:9200
     es = Elasticsearch()
 
-    # create an index in ES, ignore status code 400 (index already exists)
+    es.indices.delete(index='products', ignore=404)
     es.indices.create(
         index='products',
-        ignore=400,
+        body=dict({
+            'mappings': {
+                'products': {
+                    'properties': {
+                        'taxonomy': {
+                            'type':  'keyword'
+                        }
+                    }
+                }
+            }
+        })
     )
 
-    for i, product in all_products():
+    for i, product in all_products().items():
         es.index(
             index='products',
             id=product['id'],
-            doc_type='products',
             body=product,
+            doc_type='products',
         )
         print(product['id'], product['name'])
 

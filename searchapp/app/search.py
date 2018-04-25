@@ -27,7 +27,7 @@ def search(term: str, count: int) -> dict:
     return docs
 
 def aggregate():
-    aggregations_query = Search(index=INDEX_NAME, doc_type='product')
+    aggregations_query = Search(index=INDEX_NAME, doc_type=DOC_TYPE)
 
     # The base query
     base_query = Search(index=INDEX_NAME, doc_type=DOC_TYPE)
@@ -47,8 +47,8 @@ def aggregate():
         for refinements in [r for (dim, r) in refinements.items()]:
             for refinement in refinements:
                 filters.append(refinement.query)
-        refined_agg = A('filter', filter=(Q('bool', must=filters)), aggs={'taxonomy': agg})
-        aggregations_query.aggs.bucket('taxonomy', refined_agg)
+        # refined_agg = A('filter', filter=(Q('bool', must=filters)), aggs={'taxonomy': agg})
+        aggregations_query.aggs.bucket('taxonomy', agg)
 
     # pylint: disable=no-member
 

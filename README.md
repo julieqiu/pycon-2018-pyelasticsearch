@@ -1,8 +1,8 @@
 # [Build a Search Engine with Python + Elasticsearch](https://us.pycon.org/2018/schedule/presentation/53/)
 
 ## Instructors
-Julie Qiu
-Jim Grandpre
+- [Julie Qiu](http://twitter.com/jqiu25)
+- [Jim Grandpre](https://twitter.com/jimtla)
 
 ## [Tutorial Presentation](https://docs.google.com/presentation/d/1le9vVCVb03AIPoWbsI4w__aop-3P9OEHVt56QJl6RnA/edit)
 

@@ -1,6 +1,6 @@
 from elasticsearch import Elasticsearch
 
-from searchapp.models.product import all_products
+from searchapp.utils import all_products
 
 
 def main():

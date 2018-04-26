@@ -10,9 +10,8 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    terms = ['necklace', 'metal necklace', 'necklce', 'brass necklace',
+    terms = ['necklace', 'metal necklace', 'necklce', 'OK', 'brass necklace',
              'necklaces made of brass',
-             'dress shirt', 'S.W. Basics', 'SW Basics', 'jacket',
              "Men's Jacket", 'wool jacket', 'blazer', 'basic', 'blue dress']
 
     products_by_category = {t: search(t, 9) for t in terms}

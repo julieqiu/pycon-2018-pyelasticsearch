@@ -11,7 +11,6 @@ def all_products():
         dir_path = os.path.dirname(os.path.realpath(__file__))
         products_path = os.path.join(dir_path, 'products.json')
         with open(products_path) as product_file:
-            print('loading!')
             for idx, product in enumerate(json.load(product_file)):
                 id_ = idx + 1  # ES ids have to be positive integers
                 product['id'] = id_

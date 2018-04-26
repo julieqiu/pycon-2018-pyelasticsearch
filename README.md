@@ -39,9 +39,6 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-- Libraries you will be installing:
-[elasticsearch-py](https://github.com/elastic/elasticsearch-py)
-[Flask](http://flask.pocoo.org)
 
 5. In this directory, set up the searchapp:
 ```

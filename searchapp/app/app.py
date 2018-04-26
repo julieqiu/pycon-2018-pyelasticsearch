@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 from searchapp.utils import all_products
-from searchapp.app.search import search, aggregate
+from searchapp.app.search import search
 import json
 
 app = Flask(__name__)

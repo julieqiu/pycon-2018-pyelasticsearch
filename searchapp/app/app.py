@@ -12,7 +12,7 @@ app = Flask(__name__)
 def index():
     terms = ['necklace', 'metal necklace', 'necklce', 'OK', 'brass necklace',
              'necklaces made of brass',
-             "Men's Jacket", 'wool jacket', 'blazer', 'basic', 'blue dress']
+             "Men's Jacket"]
 
     products_by_category = {t: search(t, 9) for t in terms}
 

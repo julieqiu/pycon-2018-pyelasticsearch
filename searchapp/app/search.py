@@ -22,8 +22,10 @@ def search(term: str, count: int) -> dict:
     client.transport.connection_pool.connection.headers.update(HEADERS)
     s = Search(using=client, index=INDEX_NAME, doc_type=DOC_TYPE)
 
-    match_name = Q('match', name=dict(query=term, operator='and', fuzziness='AUTO'))
-    docs = s.query(match_name)[0:count].execute()
+    match_name = Q('match', name=dict(query=term, operator='or', fuzziness='AUTO'))
+    match_description = Q('match', description=dict(query=term, operator='and', fuzziness='AUTO'))
+    dis_max = Q('dis_max', boost=1.2, tie_breaker=0.7, queries=[match_name, match_description])
+    docs = s.query(dis_max)[0:count].execute()
 
     return docs
 

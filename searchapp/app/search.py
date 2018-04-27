@@ -13,7 +13,7 @@ def search(term: str, count: int) -> dict:
     client.transport.connection_pool.connection.headers.update(HEADERS)
 
     s = Search(using=client, index=INDEX_NAME, doc_type=DOC_TYPE)
-    name_query = Q('match', name=term)
+    name_query = Q('match', name=dict(query=term, operator='and'))
     docs = s.query(name_query).execute()
 
     return docs

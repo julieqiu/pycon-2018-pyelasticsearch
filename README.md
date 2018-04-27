@@ -5,6 +5,7 @@
 - [Jim Grandpre](https://twitter.com/jimtla)
 
 ## [Tutorial Presentation](https://docs.google.com/presentation/d/1le9vVCVb03AIPoWbsI4w__aop-3P9OEHVt56QJl6RnA/edit)
+## [Tutorial Worksheet](https://docs.google.com/document/d/1jgVf9lC-PNSWP0-avrcOoMmtNyxapsIW7mPiaYtOCm8/edit#)
 
 # Tutorial Pre-Work
 In this tutorial, you will be building a search engine to search for product attributes using a Flask app and Elasticsearch.

@@ -27,8 +27,26 @@ def main():
     es.indices.create(
         index='products',
         body=dict(
-            mappings=dict(),
-            settings=dict(),
+            mappings=dict(
+                products=dict(
+                    properties=dict(
+                        name=dict(
+                            type='text',
+                            analyzer='name_analyzer',
+                        ),
+                    ),
+                ),
+            ),
+            settings=dict(
+                analysis=dict(
+                    analyzer=dict(
+                        name_analyzer=dict(
+                            type='standard',
+                            stopwords=['made', 'of'],
+                        ),
+                    ),
+                ),
+            ),
         )
     )
 

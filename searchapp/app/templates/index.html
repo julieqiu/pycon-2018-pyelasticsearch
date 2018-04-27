@@ -74,7 +74,7 @@
   </form>
 
   <div class="bulk-results">
-    {% for category, products in products_by_category.items() %}
+    {% for category, products in products_by_category %}
       <div class="search">
         <div class="search-header">
           <a href="search?search={{category}}" class="search-term">"{{ category }}"</a>

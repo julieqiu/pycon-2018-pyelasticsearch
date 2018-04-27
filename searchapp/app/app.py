@@ -26,7 +26,7 @@ def index():
     ]
 
     num_results = 9
-    products_by_category = {t: search(t, num_results) for t in search_terms}
+    products_by_category = [(t, search(t, num_results)) for t in search_terms]
     return render_template(
         'index.html',
         products_by_category=products_by_category,

@@ -14,6 +14,8 @@ def search(term: str, count: int) -> dict:
 
     s = Search(using=client, index=INDEX_NAME, doc_type=DOC_TYPE)
     description_query = Q('match', description=dict(query=term, operator='and', fuzziness='AUTO'))
-    docs = s.query(description_query).execute()
+    name_query = Q('match', name=dict(query=term, operator='and', fuzziness='AUTO'))
+    dismax_query = Q('dis_max', queries=[name_query, description_query])
+    docs = s.query(dismax_query).execute()
 
     return docs

@@ -13,6 +13,7 @@ def products_to_index():
             _type='products',
             _source=dict(
                 name=product['name'],
+                description=product['description'],
                 image=product['image'],
                 taxonomy=product['taxonomy'],
             ),

@@ -16,17 +16,13 @@ def index():
     Return the top NUM_RESULTS results
     """
     search_terms = [
-        "Men's Jacket",
-        'OK',
-        'basic',
-        'blazer',
-        'blue dress',
-        'brass necklace',
-        'metal necklace',
         'necklace',
-        'necklaces made of brass',
+        'metal necklace',
         'necklce',
-        'wool jacket',
+        'OK',
+        'brass necklace',
+        'necklaces made of brass',
+        "men's jacket",
     ]
 
     num_results = 9

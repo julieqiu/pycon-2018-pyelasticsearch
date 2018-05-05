@@ -47,6 +47,7 @@ def index_product(es, product: ProductData):
             "image": "http://placekitten.com/200/200",
         }
     )
+    print("Indexed {}".format("A Great Product"))
 
 
 if __name__ == '__main__':

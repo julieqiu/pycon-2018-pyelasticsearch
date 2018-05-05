@@ -4,7 +4,7 @@
 - [Julie Qiu](http://twitter.com/jqiu25)
 - [Jim Grandpre](https://twitter.com/jimtla)
 
-# Tutorial Pre-Work
+# [Tutorial Pre-Work](/lessons/PREWORK.md)
 In this tutorial, you will be building a search engine to search for product attributes using a Flask app and Elasticsearch.
 
 To participate in this tutorial, you need the following:

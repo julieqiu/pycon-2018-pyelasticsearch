@@ -13,14 +13,13 @@ To participate in this tutorial, you need to complete the following prerequisite
 brew update
 brew install kibana
 brew install elasticsearch
-```
-  - For Windows or Linux, see here the [Elasticsearch Reference](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/install-elasticsearch.html).
 
-  - Make sure these commands work:
-```
 brew services start elasticsearch
 brew services start kibana
 ```
+  - For Windows or Linux, see here the [Elasticsearch Reference](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/install-elasticsearch.html).
+
+  - Make sure you can visit http://localhost:5601/ and http://localhost:9200/ in your browser.
 
 3. Clone the `pycon-2018-pyelasticsearch` repository to your computer by running:
 ```

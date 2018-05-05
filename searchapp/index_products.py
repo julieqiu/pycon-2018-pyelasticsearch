@@ -26,13 +26,13 @@ def index_product(es, product: ProductData):
     es.create(
         index=INDEX_NAME,
         doc_type=DOC_TYPE,
-        id=1,
+        id=product.id,
         body={
-            "name": "A Great Product",
-            "image": "http://placekitten.com/200/200",
+            "name": product.name,
+            "image": product.image,
         }
     )
-    print("Indexed {}".format("A Great Product"))
+    print("Indexed {}".format(product.name))
 
 
 if __name__ == '__main__':

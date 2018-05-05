@@ -1,7 +1,22 @@
 from elasticsearch import Elasticsearch
+from elasticsearch.helpers import bulk
 
 from searchapp.constants import DOC_TYPE, INDEX_NAME
 from searchapp.data import all_products, ProductData
+
+
+def products_to_index():
+    for product in all_products():
+        yield {
+            '_op_type': 'index',
+            '_index': INDEX_NAME,
+            '_type': DOC_TYPE,
+            '_id': product.id,
+            '_source': {
+                'name': product.name,
+                'image': product.image,
+            },
+        }
 
 
 def main():
@@ -17,8 +32,7 @@ def main():
         },
     )
 
-    for p in all_products():
-        index_product(es, p)
+    bulk(es, products_to_index())
 
 
 def index_product(es, product: ProductData):

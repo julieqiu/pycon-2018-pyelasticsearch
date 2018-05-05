@@ -4,21 +4,6 @@ from searchapp.constants import DOC_TYPE, INDEX_NAME
 from searchapp.data import all_products, ProductData
 
 
-def products_to_index():
-    for product in all_products().values():
-        yield dict(
-            _op_type='index',
-            _index=INDEX_NAME,
-            _type=DOC_TYPE,
-            _id=product['id'],
-            _source=dict(
-                name=product['name'],
-                image=product['image'],
-                taxonomy=product['taxonomy'],
-            ),
-        )
-
-
 def main():
     # Connect to localhost:9200 by default.
     es = Elasticsearch()

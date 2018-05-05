@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request
 
-from searchapp.utils import all_products
+from searchapp.data import all_products
 from searchapp.app.search import search
-import json
 
 app = Flask(__name__)
 
@@ -11,9 +10,7 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     """
-    Search for products for each term in TERMS.
-
-    Return the top NUM_RESULTS results
+    Search for products across a variety of terms, and show 9 results for each.
     """
     search_terms = [
         'necklace',
@@ -38,11 +35,11 @@ def search_single_product():
     """
     Execute a search for a specific search term.
 
-    Return the top NUM_RESULTS.
+    Return the top 50 results.
     """
     query = request.args.get('search')
     num_results = 50
-    products_by_category = {query: search(query, num_results)}
+    products_by_category = [(query, search(query, num_results))]
     return render_template(
         'index.html',
         products_by_category=products_by_category,
@@ -52,7 +49,11 @@ def search_single_product():
 
 @app.route('/product/<int:product_id>')
 def single_product(product_id):
-    product = json.dumps(all_products()[product_id], indent=4, sort_keys=True)
+    """
+    Display information about a specific product
+    """
+
+    product = str(all_products()[product_id - 1])
 
     return render_template(
         'product.html',

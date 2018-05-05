@@ -6,8 +6,7 @@ To participate in this tutorial, you need to complete the following prerequisite
 
 1. Install Python 3.6.4 (https://www.python.org/downloads/release/python-364/)
 
-2. Install Elasticsearch 6.2 and Kibana 6.2 (https://www.elastic.co/guide/en/elasticsearch/reference/6.2/install-elasticsearch.html)
-  - (You make need to install [Java](https://java.com/en/download/))
+2. Install Elasticsearch 6.2 and Kibana 6.2. Note: You may need to install [Java](https://java.com/en/download/))
 
   - For OS X, you can use [Homebrew](https://brew.sh/):
 ```
@@ -15,6 +14,8 @@ brew update
 brew install kibana
 brew install elasticsearch
 ```
+  - For Windows or Linux, see here: https://www.elastic.co/guide/en/elasticsearch/reference/6.2/install-elasticsearch.html
+
   - Make sure these commands work:
 ```
 brew services start elasticsearch

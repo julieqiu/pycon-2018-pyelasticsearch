@@ -17,7 +17,7 @@ brew install elasticsearch
 brew services start elasticsearch
 brew services start kibana
 ```
-  - For Windows or Linux, see here the [Elasticsearch Reference](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/install-elasticsearch.html).
+  - For Windows or Linux, see the Elastic downloads page for[Elasticsearch](https://www.elastic.co/downloads/elasticsearch) and [Kibana](https://www.elastic.co/downloads/kibana).
 
   - Make sure you can visit http://localhost:5601/ and http://localhost:9200/ in your browser.
 

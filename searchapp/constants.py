@@ -1,2 +1,2 @@
 DOC_TYPE = 'product'
-INDEX_NAME = 'product_index'
+INDEX_NAME = 'products_index'

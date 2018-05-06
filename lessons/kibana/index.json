@@ -1,0 +1,98 @@
+# Hello! This is the Kibana Dev tools console, we'll use this to interact with Elasticsearch
+
+#   Contents
+#
+#  1. JSON Documents
+#  2. Basic Indexing - Creating documents with POST / PUT
+
+# ------------------------------
+# 1. JSON Documents
+# ------------------------------
+
+# This is the
+#
+# Elasticsearch stores documents using the JSON format
+# To quickly mention JSON, this is a sample JSON document
+
+{
+  "name" : "PyCon"
+}
+
+# A document can have many fields with values
+
+{
+  "name" : "PyCon",
+  ...
+  <field> : <value>
+}
+
+# To be valid JSON, each value must have one of 6 types
+# 1. String
+# 2. Number
+# 3. Object
+# 4. Array
+# 5. Boolean
+# 6. Null
+
+# ------------------------------
+# Basic Indexing: Create a document with POST
+# ------------------------------
+
+# We'll be adding products to a product catalog. Let's add our first JSON doc:
+
+POST /products_index/products
+{
+  "name": "Orange Shirt",
+  "description": "This is an orange shirt.",
+  "price": 40,
+}
+
+# The product is now in the index! Let's find it in the index using a GET command:
+
+GET /products_index/product/1
+
+# ------------------------------
+# Basic Indexing: Create a document with PUT
+# ------------------------------
+# POST creates the document's ID for us
+# PUT requires an id for the document, as part of the URL
+
+# If we run the following we'll get an error
+PUT /products_index/products
+{
+  "name": "Blue Shirt",
+  "description": "This is a blue shirt.",
+  "price": 40,
+}
+
+# Run this instead
+PUT /products_index/products/1
+{
+  "name": "Blue Shirt",
+  "description": "This is an blue shirt.",
+  "price": 40,
+}
+
+
+# Indexing the document automatically created the index for us, named "product_index"
+# The document is of type "product" (POST /product_index/product)
+
+# It is recommeneded to store only one type per index, as multiple types per index will not be supported in the future
+# Instead of dynamically creating the index based on the first document we add, we can create the index beforehand, to set certain settings
+DELETE /products_index
+
+# When you need to index a lot of docs, you should use the bulk API, you may see signficant performance benefits
+
+POST /inspections/report/_bulk
+{ "index": { "_id": 1 }}
+{
+  "name": "Blue Shirt",
+  "description": "This is a blue shirt.",
+  "price": 40,
+}
+{ "index": { "_id": 2 }}
+{
+  "name": "Blue Shirt",
+  "description": "This is a blue shirt.",
+  "price": 40,
+}

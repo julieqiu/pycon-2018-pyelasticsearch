@@ -30,16 +30,16 @@ def search(term: str, count: int) -> List[SearchResult]:
     client.transport.connection_pool.connection.headers.update(HEADERS)
 
     s = Search(using=client, index=INDEX_NAME, doc_type=DOC_TYPE)
-    name_query = {
+    description_query = {
         'match': {
-            'name.english_analyzed': {
+            'description.english_analyzed': {
                 'query': term,
                 'operator': 'and',
                 'fuzziness': 'AUTO',
             }
         }
     }
-    docs = s.query(name_query)[:count].execute()
+    docs = s.query(description_query)[:count].execute()
 
 
     return [SearchResult.from_doc(d) for d in docs]

@@ -15,6 +15,7 @@ def products_to_index():
             '_source': {
                 'name': product.name,
                 'image': product.image,
+                'description': product.description,
             },
         }
 
@@ -31,6 +32,15 @@ def main():
                 DOC_TYPE: {
                     'properties': {
                         'name': {
+                            'type': 'text',
+                            'fields': {
+                                'english_analyzed': {
+                                    'type': 'text',
+                                    'analyzer': 'custom_english_analyzer',
+                                },
+                            },
+                        },
+                        'description': {
                             'type': 'text',
                             'fields': {
                                 'english_analyzed': {

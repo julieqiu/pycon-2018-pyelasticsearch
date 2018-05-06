@@ -39,7 +39,21 @@ def search(term: str, count: int) -> List[SearchResult]:
             }
         }
     }
-    docs = s.query(description_query)[:count].execute()
+    name_query = {
+        'match': {
+            'name.english_analyzed': {
+                'query': term,
+                'operator': 'and',
+                'fuzziness': 'AUTO',
+            }
+        }
+    }
+    dismax_query = {
+        'dis_max': {
+            'queries': [name_query, description_query],
+        },
+    }
+    docs = s.query(dismax_query)[:count].execute()
 
 
     return [SearchResult.from_doc(d) for d in docs]

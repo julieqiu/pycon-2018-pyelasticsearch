@@ -11,10 +11,10 @@ def main():
     es.indices.delete(index=INDEX_NAME, ignore=404)
     es.indices.create(
         index=INDEX_NAME,
-        body=dict(
-            mappings=dict(),
-            settings=dict(),
-        )
+        body={
+            'mappings': {},
+            'settings': {},
+        },
     )
 
     index_product(es, all_products()[0])

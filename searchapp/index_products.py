@@ -27,7 +27,21 @@ def main():
     es.indices.create(
         index=INDEX_NAME,
         body={
-            'mappings': {},
+            'mappings': {
+                DOC_TYPE: {
+                    'properties': {
+                        'name': {
+                            'type': 'text',
+                            'fields': {
+                                'english_analyzed': {
+                                    'type': 'text',
+                                    'analyzer': 'english',
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             'settings': {},
         },
     )

@@ -18,6 +18,7 @@ def index():
         'necklce',
         'OK',
         'brass necklace',
+        'a brass necklace',
         'necklaces made of brass',
         "men's jacket",
     ]

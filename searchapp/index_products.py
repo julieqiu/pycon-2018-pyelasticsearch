@@ -32,6 +32,9 @@ def index_product(es, product: ProductData):
             "image": "http://placekitten.com/200/200",
         }
     )
+
+    # Don't delete this! You'll need it to see if your indexing job is working,
+    # or if it has stalled.
     print("Indexed {}".format("A Great Product"))
 
 

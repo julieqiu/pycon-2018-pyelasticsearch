@@ -12,13 +12,12 @@ We’ve provided a basic example of indexing data into elasticsearch to get you 
 2. http://localhost:9200/products_index shows information about the products index.
 2. http://127.0.0.1:5000 returns “A Great Product” for every search term.
 
-### Dev Tools:
 
 ## Part 2: Indexing a Single Product
 Now that we know that everything is working, it’s time to put real data in the index.
 
 ### What you need to do:
-Modify the `index_product` function in `searchapp/index_product.py`. The product passed in is currently not used for anything – use it in the call to es.indicies.create.
+Modify the `index_product` function in `searchapp/index_product.py`. The product passed in is currently not used for anything – use it in the call to es.create.
 
 ### How you’ll know it worked:
 Once you re-run index product, you’ll find that “A Great Product” has been replaced by “835 Mid-RIse Capri” everywhere.

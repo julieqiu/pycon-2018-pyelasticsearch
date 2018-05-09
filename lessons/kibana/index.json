@@ -1,98 +1,64 @@
-# Hello! This is the Kibana Dev tools console, we'll use this to interact with Elasticsearch
-
-#   Contents
-#
-#  1. JSON Documents
-#  2. Basic Indexing - Creating documents with POST / PUT
-
 # ------------------------------
-# 1. JSON Documents
-# ------------------------------
-
-# This is the
-#
-# Elasticsearch stores documents using the JSON format
-# To quickly mention JSON, this is a sample JSON document
-
-{
-  "name" : "PyCon"
-}
-
-# A document can have many fields with values
-
-{
-  "name" : "PyCon",
-  ...
-  <field> : <value>
-}
-
-# To be valid JSON, each value must have one of 6 types
-# 1. String
-# 2. Number
-# 3. Object
-# 4. Array
-# 5. Boolean
-# 6. Null
-
-# ------------------------------
-# Basic Indexing: Create a document with POST
+# 1. Basic Indexing: Create a document with POST
 # ------------------------------
 
 # We'll be adding products to a product catalog. Let's add our first JSON doc:
 
-POST /products_index/products
+POST /products_index_test/product
 {
   "name": "Orange Shirt",
-  "description": "This is an orange shirt.",
-  "price": 40,
+  "description": "This is an orange shirt."
 }
 
-# The product is now in the index! Let's find it in the index using a GET command:
+# Indexing the document automatically created the index for us, named "product_index_test" with mapping type "product"
 
-GET /products_index/product/1
+# The product is now in the index!
+
+# Let's find it in the index using a GET command:
+GET /products_index_test/_search
 
 # ------------------------------
-# Basic Indexing: Create a document with PUT
+# 2. Basic Indexing: Create a document with PUT
 # ------------------------------
 # POST creates the document's ID for us
 # PUT requires an id for the document, as part of the URL
 
 # If we run the following we'll get an error
-PUT /products_index/products
+PUT /products_index_test/product
 {
   "name": "Blue Shirt",
-  "description": "This is a blue shirt.",
-  "price": 40,
+  "description": "This is a blue shirt."
 }
 
-# Run this instead
-PUT /products_index/products/1
+# The error is expected!
+# Run this instead:
+PUT /products_index_test/product/1
 {
   "name": "Blue Shirt",
-  "description": "This is an blue shirt.",
-  "price": 40,
+  "description": "This is an blue shirt."
 }
 
+# Run this to get all of the products in our index
+GET /products_index_test/_search
 
-# Indexing the document automatically created the index for us, named "product_index"
-# The document is of type "product" (POST /product_index/product)
+# We now have an Orange Shirt and a Blue Shirt in our index.
 
-# It is recommeneded to store only one type per index, as multiple types per index will not be supported in the future
-# Instead of dynamically creating the index based on the first document we add, we can create the index beforehand, to set certain settings
-DELETE /products_index
+# Instead of dynamically creating the index based on the first document we add, we can create the index beforehand, to set certain settings. We will do that later on in the tutorial today.
+
+# ------------------------------
+# 3. Basic Indexing: Bulk adding products
+# ------------------------------
 
 # When you need to index a lot of docs, you should use the bulk API, you may see signficant performance benefits
 
-POST /inspections/report/_bulk
-{ "index": { "_id": 1 }}
-{
-  "name": "Blue Shirt",
-  "description": "This is a blue shirt.",
-  "price": 40,
-}
+POST /products_index_test/product/_bulk
 { "index": { "_id": 2 }}
-{
-  "name": "Blue Shirt",
-  "description": "This is a blue shirt.",
-  "price": 40,
-}
+{"name": "Green Shirt", "description": "This is a green shirt."}
+{ "index": { "_id": 3 }}
+{"name": "Purple Shirt", "description": "This is a purple shirt."}
+
+
+GET /products_index_test/_search
+
+# Let's delete this index, since we won't be using it again.
+DELETE /products_index_test

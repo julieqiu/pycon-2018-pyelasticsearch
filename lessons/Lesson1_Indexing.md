@@ -92,7 +92,7 @@ Each action is a dictionary containing some special fields that start with under
 
 You’ll want to:
 1. Specify an `_op_` type of index
-2. Set `_index` and `_doc` type to the appropriate constants
+2. Set `_index` and `_type` type to the appropriate constants
 3. Provide the document (under the `_source` key), and `_id` just like in index_product
 
 

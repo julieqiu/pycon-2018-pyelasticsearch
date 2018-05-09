@@ -73,7 +73,7 @@ Re-run `index_products`, and it will create the analyzer. You can query it direc
 
 ### How you’ll know it worked:
 ```
-curl -X POST localhost:9200/product_index/_analyze -d '{"analyzer": "custom_english_analyzer", "text": "necklace made of brass"}' -H 'Content-Type: application/json'
+curl -X POST localhost:9200/products_index/_analyze -d '{"analyzer": "custom_english_analyzer", "text": "necklace made of brass"}' -H 'Content-Type: application/json'
 ```
 
 Yields:

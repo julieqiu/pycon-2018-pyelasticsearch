@@ -25,9 +25,9 @@ The `product` object passed into `index_product` is currently not used for anyth
 Once you re-run index product, you’ll find that “A Great Product” has been replaced by “835 Mid-RIse Capri” everywhere.
 
 ### Helpful information
-Open up `searchapp/index_products.py`. You’ll notice that `index_product` currently takes a `ProductData` object as an arugment.
+Open up `searchapp/index_products.py`. You’ll notice that `index_product` currently takes a `ProductData` object as an argument.
 
-Currently, `index_product` does not use this argument. It creates a single product in the index using hardcoded data for `A Great Product` with the image of a kitchen.
+Currently, `index_product` does not use this argument. It creates a single product in the index using hardcoded data for `A Great Product` with the image of a kitten.
 
 For this step, you’ll need to modify `index_product` to use the `ProductData` objected passed in.
 
@@ -91,8 +91,9 @@ You’re going to invoke the `bulk` from `elasticsearch.helpers`, and pass it an
 Each action is a dictionary containing some special fields that start with underscores, and a `doc` field that contains the actual document to index.
 
 You’ll want to:
-1. Specify an `_op_` type of index
-2. Set `_index` and `_type` type to the appropriate constants
+
+1. Specify an `_op` type of index
+2. Set `_index` and `_type` (doc type) to the appropriate constants
 3. Provide the document (under the `_source` key), and `_id` just like in index_product
 
 

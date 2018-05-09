@@ -17,7 +17,9 @@ We’ve provided a basic example of indexing data into elasticsearch to get you 
 Now that we know that everything is working, it’s time to put real data in the index.
 
 ### What you need to do:
-Modify the `index_product` function in `searchapp/index_product.py`. The product passed in is currently not used for anything – use it in the call to es.create.
+Modify the `index_product` function in `searchapp/index_product.py`.
+
+The `product` object passed into `index_product` is currently not used for anything. Use it inside es.create.
 
 ### How you’ll know it worked:
 Once you re-run index product, you’ll find that “A Great Product” has been replaced by “835 Mid-RIse Capri” everywhere.

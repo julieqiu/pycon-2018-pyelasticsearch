@@ -43,3 +43,33 @@ pip install -e .
 ```
 
 You're all set for the tutorial this Wednesday! :)
+
+---
+
+### Docker Compose Instruction
+
+1. Clone the `pycon-2018-pyelasticsearch` repository to your computer by running:
+```
+git clone github.com/julieqiu/pycon-2018-pyelasticsearch
+```
+
+2. Download elasticsearch and kibana images; start containers via docker-compose
+```
+docker-compose up
+```
+
+3. In root of the repository, set up a virtualenv:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+4. Install the necessary python requirements:
+```
+pip install -r requirements.txt
+```
+
+5. Set up the searchapp:
+```
+pip install -e .
+```
